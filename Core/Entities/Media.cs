@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Core.Entities
 {
-    [Table("Shows")]
+    [Table("Media")]
     public class Media
     {
         public int Id { get; set; }

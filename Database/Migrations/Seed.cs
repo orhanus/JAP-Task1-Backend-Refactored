@@ -28,7 +28,7 @@ namespace Database.Migrations
         {
             if (await context.Media.AnyAsync()) return;
 
-            var showData = await System.IO.File.ReadAllTextAsync("ShowSeedData.json");
+            var showData = await System.IO.File.ReadAllTextAsync("../Database/Migrations/ShowSeedData.json");
             var shows = JsonSerializer.Deserialize<List<Media>>(showData);
 
             Random random = new Random();

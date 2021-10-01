@@ -17,7 +17,7 @@ namespace API.Controllers
             _mediaService = mediaService;
         }
 
-        [HttpGet("{showType}", Name = "GetShows")]
+        [HttpGet("{mediaType}", Name = "GetShows")]
         public async Task<ActionResult<ICollection<MediaDto>>> GetShows(
             [FromQuery]MediaParams mediaParams, 
             MediaType mediaType) 

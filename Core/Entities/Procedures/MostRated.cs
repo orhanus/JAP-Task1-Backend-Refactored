@@ -2,7 +2,7 @@
 {
     public class MostRated
     {
-        public int MovieID { get; set; }
+        public int MediaId { get; set; }
         public string Title { get; set; }
         public int NumberOfRatings { get; set; }
         public double AverageRating { get; set; }
