@@ -1,5 +1,7 @@
 using System;
 using System.Threading.Tasks;
+using Database;
+using Database.Migrations;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;

@@ -1,9 +1,10 @@
-using API.Data;
-using API.Helpers;
-using API.Interfaces;
+using Core.Interfaces.Repositories;
+using Database;
+using Mapper;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Repository;
 
 namespace API.Extensions
 {
@@ -15,7 +16,7 @@ namespace API.Extensions
             {
                 options.UseSqlite(config.GetConnectionString("DefaultConnection"));
             });
-            services.AddScoped<IShowRepository, ShowRepository>();
+            services.AddScoped<IMediaRepository, MediaRepository>();
             services.AddAutoMapper(typeof(AutoMapperProfiles).Assembly);
 
             return services;
