@@ -19,13 +19,13 @@ namespace Core.Services
     {
         private readonly IMediaRepository _mediaRepository;
         private readonly IMapper _mapper;
-        private readonly IRatingService _ratingService;
+        private readonly IRatingRepository _ratingRepository;
 
-        public MediaService(IMediaRepository mediaRepository, IMapper mapper, IRatingService ratingService)
+        public MediaService(IMediaRepository mediaRepository, IMapper mapper, IRatingRepository ratingRepository)
         {
             _mediaRepository = mediaRepository;
             _mapper = mapper;
-            _ratingService = ratingService;
+            _ratingRepository = ratingRepository;
         }
 
         /// <summary>
@@ -50,7 +50,7 @@ namespace Core.Services
                 mediaParams.PageNumber, mediaParams.PageSize);
 
             foreach (var item in pagedList)
-                item.AverageRating = await _ratingService.GetAverageRatingAsync(item.Id);
+                item.AverageRating = await _ratingRepository.GetAverageRatingAsync(item.Id);
 
             return pagedList;
         }
