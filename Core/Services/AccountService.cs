@@ -32,7 +32,7 @@ namespace Core.Services
             User user = await _accountRepository.GetUserByUsernameAsync(loginDto.Username);
 
             if (user == null)
-                throw new ArgumentException("Username is invalid");
+                throw new UnauthorizedAccessException("Username is invalid");
 
             using var hmac = new HMACSHA512(user.PasswordSalt);
 
@@ -40,7 +40,7 @@ namespace Core.Services
 
             for (int i = 0; i < computedHash.Length; i++)
                 if (computedHash[i] != user.PasswordHash[i]) 
-                    throw new ArgumentException("Invalid password");
+                    throw new UnauthorizedAccessException("Invalid password");
 
             return new UserDto
             {
